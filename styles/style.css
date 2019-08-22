@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900&display=swap');
+
+
+body {
+  background-color: floralWhite;
+}
+
+main {
+  min-height: 100vh;
+}
+
+header {
+}
+
+.fancy-h1 {
+  margin: 0;
+  padding: 50px 0;
+  color: snow;
+  text-align: center;
+  font-size: 64px;
+  font-family: Montserrat;
+  letter-spacing: 3px;
+  line-height: 1.25;
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #61DAFB;
+  text-shadow: -3px 3px 6px rgba(0,0,0,0.15);
+}
+
+.fancy-h1 span {
+  display: block;
+  font-size: 20px;
+  letter-spacing: 1px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: violet;
+}
+
+@media only screen and (max-width: 800px){.fancy-h1{font-size: 48px;}}
+@media only screen and (max-width: 600px){.fancy-h1{font-size: 40px;}}
+
+.fancy-h2 {
+  color: snow;
+  font-size: 48px;
+  font-family: Montserrat;
+  letter-spacing: 1px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: violet;
+  text-shadow: -2px 2px 4px rgba(0,0,0,0.15);
+}
+
+.fancy-h3 {
+  color: snow;
+  font-size: 40px;
+  font-family: Montserrat;
+  letter-spacing: 1px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #61DAFB;
+  text-shadow: -2px 2px 4px rgba(0,0,0,0.15);
+}
+
+.article {
+  position: relative;
+  min-height: 500px;
+  width: 75%;
+  margin: 50px auto;
+  padding: 1.5rem;
+  background-color: rgba(255,255,255,0.25);
+  border: 2px solid rgba(0,0,0,0.35);
+  border-radius: 1.5rem;
+  box-shadow: -5px 5px 5px rgba(0,0,0,0.25),
+               5px 5px 5px rgba(0,0,0,0.25);
+}
+
+
+/* =============================================================================
+                              .section
+============================================================================= */
+
+
+.section {
+  position: relative;
+  min-height: 100vh; /* Was height: 100vh */
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+          clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+  overflow: hidden;
+}
+
+.section::after {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: '';
+  z-index: -1;
+}
+
+.section:nth-child(1)::after { background: url("../images/image-1.jpg") no-repeat center center/cover; }
+.section:nth-child(2)::after { background: url("../images/image-2.jpg") no-repeat center center/cover; }
+.section:nth-child(3)::after { background: url("../images/image-3.jpg") no-repeat center center/cover; }
+.section:nth-child(4)::after { background: url("../images/image-4.jpg") no-repeat center center/cover; }
+
+
+/* =============================================================================
+                              .ending-section
+============================================================================= */
+
+
+.ending-section {
+  position: relative; /* For the triangular top, which has position: absolute; */
+  margin: 0 auto 100px auto;
+  padding: 0;
+}
+
+/* This is the triangular top */
+.ending-section::before {
+  display: block;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  content: '';
+  background-color: floralWhite;
+  z-index: 99; /* Arbitrary */
+
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.ending-article {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 25px 0;
+  padding: 0;
+  width: 100%;
+  color: white;
+  font-size: 20px;
+  font-family: Montserrat;
+  text-align: center;
+  line-height: 1;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: violet;
+  text-shadow: -2px 2px 2px rgba(0,0,0,0.15);
+}
+
+.author::before,
+.author::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background-color: violet;
+}
+
+.author::before { margin-right: 25px; }
+.author::after  { margin-left: 25px;  }
